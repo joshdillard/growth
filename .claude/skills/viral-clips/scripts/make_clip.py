@@ -240,8 +240,12 @@ def main():
         inputs = ["-i", segment]
         if args.logo:
             inputs += ["-i", args.logo]
-            chain += (f";[1:v]scale={LOGO_WIDTH}:-1[logo];"
-                      f"[base][logo]overlay=40:40[branded]")
+            # small drop shadow so a white wordmark reads on bright footage
+            chain += (f";[1:v]scale={LOGO_WIDTH}:-1,format=rgba,split=2[logo][sh0];"
+                      f"[sh0]colorchannelmixer=rr=0:gg=0:bb=0:aa=0.55,"
+                      f"gblur=sigma=2.5[shadow];"
+                      f"[base][shadow]overlay=44:44[shaded];"
+                      f"[shaded][logo]overlay=40:40[branded]")
             last = "branded"
         else:
             last = "base"
