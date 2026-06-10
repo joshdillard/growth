@@ -141,8 +141,10 @@ def build_ass(words, start, end, title, dest):
     if cur:
         cues.append(cur)
 
-    # Title: white on red box (BorderStyle=3), top of frame, first 5 seconds.
-    # Caption: white, heavy black outline, lower third.
+    # Title: white on red box (BorderStyle=3), centered in the frame,
+    #   first 5 seconds, then fades away.
+    # Captions: white with red outline. Lower third while the title card
+    #   is up; once it fades they populate the middle where the title was.
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {OUT_W}
@@ -151,8 +153,9 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Title,Arial,68,&H00FFFFFF,&H00FFFFFF,&H001A1AC8,&H001A1AC8,-1,0,0,0,100,100,1,0,3,16,0,8,70,70,310,1
-Style: Caption,Arial,88,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,7,3,2,40,40,420,1
+Style: Title,Arial,68,&H00FFFFFF,&H00FFFFFF,&H001A1AC8,&H001A1AC8,-1,0,0,0,100,100,1,0,3,16,0,5,70,70,0,1
+Style: Caption,Arial,88,&H00FFFFFF,&H00FFFFFF,&H001A1AC8,&H80000000,-1,0,0,0,100,100,1,0,1,7,3,2,40,40,420,1
+Style: CaptionMid,Arial,88,&H00FFFFFF,&H00FFFFFF,&H001A1AC8,&H80000000,-1,0,0,0,100,100,1,0,1,7,3,5,40,40,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -161,13 +164,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     if title:
         events.append(
             f"Dialogue: 1,{ass_time(0)},{ass_time(TITLE_SECONDS)},Title,,0,0,0,,"
-            f"{{\\fad(150,300)}}{ass_escape(title.upper())}")
+            f"{{\\fad(150,500)}}{ass_escape(title.upper())}")
     for cue in cues:
         t0 = cue[0]["start"] - start
         t1 = max(cue[-1]["end"] - start, t0 + 0.3)
+        style = "CaptionMid" if (title and t0 >= TITLE_SECONDS) or not title else "Caption"
         text = ass_escape(" ".join(w["word"] for w in cue).upper())
         pop = "{\\fscx80\\fscy80\\t(0,90,\\fscx100\\fscy100)}"
-        events.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t1)},Caption,,0,0,0,,{pop}{text}")
+        events.append(f"Dialogue: 0,{ass_time(t0)},{ass_time(t1)},{style},,0,0,0,,{pop}{text}")
     with open(dest, "w", encoding="utf-8") as f:
         f.write(header + "\n".join(events) + "\n")
     return len(cues)

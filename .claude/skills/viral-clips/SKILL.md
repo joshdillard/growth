@@ -14,8 +14,8 @@ Helper scripts live in `scripts/` next to this file; the channel logo belongs at
 John Amanchukwu's content: school-board confrontations, sermons, and interviews. His shorts:
 
 - **Logo top-left** for the whole clip (`assets/logo.png` — if missing, ask the user for it once and save it there).
-- **Title card for the first 5 seconds**: the reel's title, ALL CAPS, white on a red box at the top. Channel-style titles are dramatic and concrete: "THROWN OUT OF A SCHOOL BOARD MEETING IN FLORIDA!", "SLAMS ASHEVILLE SCHOOL BOARD", "GOES OFF ABOUT LGBT BOOKS".
-- **Word-pop captions**: ≤3 uppercase words per cue, bold white with black outline, lower third.
+- **Title card for the first 5 seconds**: the reel's title, ALL CAPS, white on a red box, centered in the middle of the frame, then fades away. Channel-style titles are dramatic and concrete: "THROWN OUT OF A SCHOOL BOARD MEETING IN FLORIDA!", "SLAMS ASHEVILLE SCHOOL BOARD", "GOES OFF ABOUT LGBT BOOKS".
+- **Word-pop captions**: ≤3 uppercase words per cue, bold white with red outline. Lower third while the title card is up; once it fades, captions populate the middle of the frame where the title card was.
 - **Split screen with guests**: when a clip is a back-and-forth between John and a guest, use the stacked two-panel layout instead of single-speaker framing.
 
 ## Step 0 — Dependencies
