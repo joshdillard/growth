@@ -17,7 +17,7 @@ import tempfile
 
 OUT_W, OUT_H = 1080, 1920
 TITLE_SECONDS = 5.0
-LOGO_WIDTH = 200          # px, overlaid at top-left
+LOGO_WIDTH = 260          # px, overlaid at top-left (wide wordmark needs room)
 MAX_WORDS_PER_CUE = 3
 CUE_GAP_BREAK = 0.6       # start a new caption cue after a pause this long
 
