@@ -1,0 +1,35 @@
+{
+  "name": "dillard-ai-short-content-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal short-form content engine: daily AI-researched topics -> scripts in Josh's voice -> HeyGen clone + AI B-roll -> rendered reels -> multi-platform publishing with comment-to-DM funnels.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "daily": "tsx scripts/daily.ts",
+    "seed": "tsx scripts/seed-demo.ts",
+    "render": "remotion render remotion/index.ts ShortReel out/reel.mp4",
+    "remotion:studio": "remotion studio remotion/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.245",
+    "@remotion/player": "^4.0.245",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.245",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
