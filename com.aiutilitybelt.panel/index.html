@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>AI UtilityBelt — YouTube Editor</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="brand">🛠️ <span>AI UtilityBelt</span> <em>YouTube editor</em></div>
+    <div id="seq-status" class="seq-status">checking sequence…</div>
+  </header>
+
+  <!-- Shared transcript source bar -->
+  <section class="transcript-bar">
+    <div id="transcript-status" class="transcript-status">No transcript loaded</div>
+    <div class="transcript-actions">
+      <button id="btn-import-srt" class="btn small" title="Import an SRT/VTT exported from Premiere's Text panel (or any captions file)">Import SRT/VTT</button>
+      <button id="btn-paste" class="btn small" title="Paste a transcript">Paste</button>
+      <button id="btn-auto-transcribe" class="btn small" title="Auto-transcribe an audio/video file with Whisper (needs OpenAI key in Settings)">Auto-transcribe</button>
+    </div>
+    <input type="file" id="file-srt" accept=".srt,.vtt,.json,.txt" style="display:none"/>
+    <input type="file" id="file-media" accept="audio/*,video/*" style="display:none"/>
+  </section>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="shorts">🎬 Shorts</button>
+    <button class="tab" data-tab="cleanup">✂️ Cleanup</button>
+    <button class="tab" data-tab="episode">📦 Episode Kit</button>
+    <button class="tab" data-tab="settings">⚙️</button>
+  </nav>
+
+  <!-- ============ SHORTS ============ -->
+  <main id="tab-shorts" class="tab-panel active">
+    <p class="hint">Finds the most viral moments in the transcript, then builds a
+      <b>9:16 auto-reframed sequence</b> in your project for each one.</p>
+    <div class="controls-row">
+      <label>Shorts <input type="number" id="shorts-count" min="1" max="15" value="5"/></label>
+      <label>Min <input type="number" id="shorts-min" min="5" max="180" value="20"/>s</label>
+      <label>Max <input type="number" id="shorts-max" min="10" max="180" value="59"/>s</label>
+    </div>
+    <button id="btn-find-shorts" class="btn primary wide">Find Viral Moments</button>
+    <div id="shorts-results" class="results"></div>
+    <button id="btn-create-all-shorts" class="btn wide" style="display:none">Create All 9:16 Sequences</button>
+  </main>
+
+  <!-- ============ CLEANUP ============ -->
+  <main id="tab-cleanup" class="tab-panel">
+    <p class="hint">Detects dead air, stutters, false starts and “let me start over”
+      retakes. Mark them for review, or auto-cut them on a <b>duplicate</b> of your sequence.</p>
+    <div class="controls-row">
+      <label>Min pause <input type="number" id="pause-threshold" min="0.3" max="5" step="0.1" value="1.0"/>s</label>
+      <label>Keep padding <input type="number" id="pause-padding" min="0" max="1" step="0.05" value="0.15"/>s</label>
+    </div>
+    <div class="controls-row checkboxes">
+      <label><input type="checkbox" id="cleanup-pauses" checked/> Pauses</label>
+      <label><input type="checkbox" id="cleanup-blunders" checked/> Blunders &amp; retakes (AI)</label>
+    </div>
+    <button id="btn-analyze-cleanup" class="btn primary wide">Analyze</button>
+    <div id="cleanup-summary" class="summary"></div>
+    <div id="cleanup-results" class="results"></div>
+    <div id="cleanup-actions" class="button-row" style="display:none">
+      <button id="btn-cleanup-markers" class="btn">Add Markers</button>
+      <button id="btn-cleanup-autocut" class="btn danger">Auto-Cut (on duplicate)</button>
+    </div>
+  </main>
+
+  <!-- ============ EPISODE KIT ============ -->
+  <main id="tab-episode" class="tab-panel">
+    <p class="hint">Turns the transcript into a full YouTube package: titles,
+      description, chapter timestamps, thumbnail concepts and tags.</p>
+    <button id="btn-episode-kit" class="btn primary wide">Generate Episode Kit</button>
+    <div id="episode-results" class="results"></div>
+  </main>
+
+  <!-- ============ SETTINGS ============ -->
+  <main id="tab-settings" class="tab-panel">
+    <div class="field">
+      <label for="set-anthropic">Anthropic API key <span class="req">required</span></label>
+      <input type="password" id="set-anthropic" placeholder="sk-ant-…"/>
+      <small>Powers everything. Get one at console.anthropic.com. Stored only on this machine.</small>
+    </div>
+    <div class="field">
+      <label for="set-model">Model</label>
+      <select id="set-model">
+        <option value="claude-opus-4-8">Claude Opus 4.8 (best quality — default)</option>
+        <option value="claude-sonnet-5">Claude Sonnet 5 (faster / cheaper)</option>
+        <option value="claude-haiku-4-5">Claude Haiku 4.5 (fastest)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="set-openai">OpenAI API key <span class="opt">optional</span></label>
+      <input type="password" id="set-openai" placeholder="sk-…"/>
+      <small>Only used for one-click Whisper auto-transcription. Premiere’s built-in
+        Speech-to-Text + “Import SRT/VTT” works without it.</small>
+    </div>
+    <div class="field">
+      <label for="set-context">Channel context <span class="opt">optional</span></label>
+      <textarea id="set-context" rows="4"
+        placeholder="e.g. Tech interview podcast for indie founders. Casual tone, no clickbait, audience is developers…"></textarea>
+      <small>Given to the AI so titles, captions and clip choices match your channel.</small>
+    </div>
+    <button id="btn-save-settings" class="btn primary wide">Save Settings</button>
+    <div id="settings-saved" class="summary"></div>
+  </main>
+
+  <!-- Paste modal -->
+  <div id="paste-modal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h3>Paste transcript</h3>
+      <p class="hint">SRT/VTT content keeps timestamps (enables cutting). Plain text
+        works for the Episode Kit only.</p>
+      <textarea id="paste-text" rows="12" placeholder="Paste transcript here…"></textarea>
+      <div class="button-row">
+        <button id="btn-paste-cancel" class="btn">Cancel</button>
+        <button id="btn-paste-ok" class="btn primary">Use Transcript</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Busy overlay -->
+  <div id="busy" class="busy" style="display:none">
+    <div class="spinner"></div>
+    <div id="busy-text">Working…</div>
+  </div>
+
+  <footer class="app-footer" id="toast"></footer>
+
+  <script src="js/lib/CSInterface.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/bridge.js"></script>
+  <script src="js/transcript.js"></script>
+  <script src="js/claude.js"></script>
+  <script src="js/whisper.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
