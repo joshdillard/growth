@@ -1,0 +1,9 @@
+node_modules/
+out/
+build/
+.env
+.DS_Store
+*.log
+# large media kept out of git
+media/
+assembly/public/source/
