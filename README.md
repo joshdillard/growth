@@ -27,7 +27,7 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `brand-website.jpg` | Brand, website tile (links to sunstatefire.com); a homepage screenshot covers the placeholder card |
 | `brand-website-2.jpg` | Brand, second website tile (links to be-catholic.lovable.app) |
 | `brand-assets.jpg` | Brand, brand assets |
-| `brand-merch.jpg` | Brand, merch & apparel |
+| `brand-ai-film.jpg` | Brand, optional poster for the AI Film Making video tile (plays the Instagram post) |
 | `brand-campaign.jpg` | Brand, campaign & print |
 | `og-image.jpg` | Link preview image when the site is shared (1200×630) |
 

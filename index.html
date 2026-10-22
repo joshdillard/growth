@@ -292,7 +292,7 @@
 
         <div class="gallery">
           <!-- AI Content video: plays from YouTube in a pop-up player; the poster is the video's YouTube thumbnail -->
-          <button type="button" class="media g g--wide g--video reveal" data-video="https://www.youtube-nocookie.com/embed/mrlNDiBHMws?autoplay=1&amp;rel=0" data-video-link="https://youtu.be/mrlNDiBHMws" aria-label="Play AI content video">
+          <button type="button" class="media g g--wide g--video reveal" data-video="https://www.youtube-nocookie.com/embed/mrlNDiBHMws?autoplay=1&amp;rel=0" data-video-link="https://youtu.be/mrlNDiBHMws" data-video-source="YouTube" aria-label="Play AI content video">
             <img src="https://i.ytimg.com/vi/mrlNDiBHMws/hqdefault.jpg" alt="" onerror="this.remove()">
             <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
             <span class="g--video__title" aria-hidden="true">Watch the <em>AI content</em> reel</span>
@@ -328,10 +328,13 @@
             <img src="assets/img/brand-assets.jpg" alt="Brand assets" onerror="this.remove()">
             <figcaption>Brand Assets</figcaption>
           </figure>
-          <figure class="media g reveal" data-label="Merch &amp; apparel &middot; assets/img/brand-merch.jpg">
-            <img src="assets/img/brand-merch.jpg" alt="Merch and apparel" onerror="this.remove()">
-            <figcaption>Merch &amp; Apparel</figcaption>
-          </figure>
+          <!-- AI film making: plays the Instagram post in the pop-up player (vertical). Optional poster: assets/img/brand-ai-film.jpg -->
+          <button type="button" class="media g g--video reveal" data-video="https://www.instagram.com/p/Db29AqbRClS/embed" data-video-link="https://www.instagram.com/p/Db29AqbRClS/" data-video-shape="tall" data-video-source="Instagram" aria-label="Play AI film making video">
+            <img src="assets/img/brand-ai-film.jpg" alt="" onerror="this.remove()">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+            <span class="g--video__title" aria-hidden="true">Watch the <em>AI film</em></span>
+            <span class="g__cap">AI Film Making</span>
+          </button>
           <figure class="media g reveal" data-label="Campaign / print &middot; assets/img/brand-campaign.jpg">
             <img src="assets/img/brand-campaign.jpg" alt="Campaign and print materials" onerror="this.remove()">
             <figcaption>Campaign &amp; Print</figcaption>
@@ -410,7 +413,7 @@
   <dialog class="player" id="player" aria-label="Video player">
     <div class="player__frame"><iframe title="AI content video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
     <div class="player__bar">
-      <a class="link" href="#" target="_blank" rel="noopener" data-player-link>Watch on YouTube <span aria-hidden="true">&nearr;</span></a>
+      <a class="link" href="#" target="_blank" rel="noopener" data-player-link><span>Watch on <span data-player-source>YouTube</span></span> <span aria-hidden="true">&nearr;</span></a>
       <button type="button" class="btn btn--sm btn--ghost" data-player-close>Close</button>
     </div>
   </dialog>

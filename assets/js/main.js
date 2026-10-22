@@ -75,6 +75,8 @@ const SITE = {
       btn.addEventListener("click", () => {
         frame.src = btn.dataset.video;
         link.href = btn.dataset.videoLink || btn.dataset.video;
+        player.querySelector("[data-player-source]").textContent = btn.dataset.videoSource || "the original site";
+        player.classList.toggle("player--tall", btn.dataset.videoShape === "tall");
         player.showModal();
       })
     );
