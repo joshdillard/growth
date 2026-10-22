@@ -66,6 +66,27 @@ const SITE = {
   toggle.addEventListener("click", () => setMenu(menu.hidden));
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
+  // Remote preview images: a screenshot service or YouTube can answer with a small
+  // placeholder instead of the real image. Retry once, fall back, or hide it so the
+  // tile's own card shows instead.
+  document.querySelectorAll("img[data-min-width]").forEach((img) => {
+    const check = () => {
+      if (img.naturalWidth >= Number(img.dataset.minWidth)) return;
+      if (img.dataset.fallback) {
+        const next = img.dataset.fallback;
+        delete img.dataset.fallback;
+        img.src = next;
+      } else if ("retry" in img.dataset) {
+        delete img.dataset.retry;
+        setTimeout(() => (img.src = img.src + "&r=" + Date.now()), 6000);
+      } else {
+        img.remove();
+      }
+    };
+    img.addEventListener("load", check);
+    if (img.complete && img.naturalWidth) check();
+  });
+
   // Video pop-up player
   const player = document.getElementById("player");
   if (player) {

@@ -23,15 +23,16 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `social-amanchukwu.jpg` | Social, John Amanchukwu card (4:5) ✓ added |
 | `social-why-files.jpg` | Social, The Why Files card (4:5) ✓ added |
 | `dashboard.jpg` | AI Systems, replaces the built-in dashboard mockup (16:10) |
-| `brand-dashboard.jpg` | Brand, Micro Solutions / Dashboards tile (tall, links to the Network Hub) |
-| `brand-website.jpg` | Brand, website tile (links to sunstatefire.com); a homepage screenshot covers the placeholder card |
-| `brand-website-2.jpg` | Brand, second website tile (links to be-catholic.lovable.app) |
 | `brand-assets.jpg` | Brand, brand assets |
 | `brand-ai-film.jpg` | Brand, optional poster for the AI Film Making video tile (plays the Instagram post) |
 | `brand-campaign.jpg` | Brand, campaign & print |
 | `og-image.jpg` | Link preview image when the site is shared (1200×630) |
 
 To use a different file name or format (`.png`, `.webp`), change the `src` on the matching `<img>` in `index.html`.
+
+## Brand tile previews
+
+The Sunstate Fire, Be Catholic and Network Hub tiles load a live screenshot from WordPress mShots (`s0.wp.com/mshots`). The AI content reel is a YouTube embed at the top of the Brand section. To use your own screenshot instead, save it in `assets/img/` and point that tile's `<img src>` at it.
 
 ## Change the look
 
