@@ -17,7 +17,7 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | File | Where it shows |
 | --- | --- |
 | `josh-hero.jpg` | Header portrait (4:5, vertical) ✓ added |
-| `josh-about.jpg` | About section (square) |
+| `josh-about.jpg` | About section (portrait frame) ✓ added |
 | `social-tatum.jpg` | Social, Officer Tatum card (4:5) ✓ added |
 | `social-sgt-care.png` | Social, Sgt. Care card (logo, shown uncropped on white) ✓ added |
 | `social-amanchukwu.jpg` | Social, John Amanchukwu card (4:5) ✓ added |

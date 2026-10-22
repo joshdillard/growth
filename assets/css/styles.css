@@ -155,7 +155,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .media--tall { aspect-ratio: 4 / 5; }
 .media--square { aspect-ratio: 1; }
 .media--about { aspect-ratio: 4 / 5; }
-.media--about > img { object-position: 55% center; }
+.media--about > img { object-position: 51% center; }
 /* For logos and artwork on a white background: show the whole image, no cropping. */
 .media--logo { background: #fff; }
 .media--logo > img { object-fit: contain; padding: 8%; }
@@ -420,6 +420,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 12px; grid-auto-flow: dense; }
   .g--link, .g--gallery { grid-column: span 2; }
   .g__cap-more { display: none; }
+  .about__grid > .media { max-width: 300px; }
   .gallery > :last-child { grid-column: span 2; }
   .play { top: 58%; width: 58px; height: 58px; box-shadow: 0 0 0 7px rgba(233,167,74,.16); }
   .play svg { width: 20px; height: 20px; }
