@@ -1,28 +1,4 @@
-/* =========================================================
-   SITE SETTINGS: paste your real links here.
-   Any link left empty keeps its on-page fallback.
-   ========================================================= */
-const SITE = {
-  calendly: "",          // e.g. "https://calendly.com/joshdillard/strategy-call"
-  videoSite: "",         // your video production site
-  social: {
-    instagram: "",
-    x: "",
-    linkedin: "",
-    youtube: "",
-  },
-};
-
 (() => {
-  // Booking buttons
-  if (SITE.calendly) {
-    document.querySelectorAll("[data-book]").forEach((a) => {
-      a.href = SITE.calendly;
-      a.target = "_blank";
-      a.rel = "noopener";
-    });
-  }
-
   // Video production site link
   document.querySelectorAll("[data-video-site]").forEach((a) => {
     if (SITE.videoSite) {

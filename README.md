@@ -4,11 +4,18 @@ Static one-page site. No build step: open `index.html` in a browser, or deploy t
 
 ## Add your links
 
-Edit the `SITE` block at the top of `assets/js/main.js`:
+Edit `assets/js/config.js`:
 
-- `calendly`: every "Book a call" button opens this link.
 - `videoSite`: shows the "See my video production work" link in the About section. It stays hidden until you add it.
 - `social`: footer links. Any you leave empty stay hidden.
+
+## Booking page
+
+Every "Book a call" button opens `book.html`: visitors pick a day and a time, then leave their name, phone, email, brand, link, what they need and notes.
+
+To receive requests, create a free form at [formspree.io](https://formspree.io) and paste its endpoint into `booking.endpoint` in `assets/js/config.js`. Each request arrives by email with the date and time. Until it's set, the page tells visitors their request wasn't sent.
+
+Also in `booking`: your time zone, which weekdays you take calls, the hours, slot length, how soon and how far ahead people can book.
 
 ## Add your images
 

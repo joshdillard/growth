@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Book a Strategy Call — Josh Dillard</title>
+  <meta name="description" content="Book a free 30-minute strategy call with Josh Dillard, growth partner for social media, AI systems and brand.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="book-page">
+  <header class="nav is-scrolled">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="brand" aria-label="Josh Dillard, home">
+        <span class="brand__mark">JD</span>
+        <span class="brand__name">Josh Dillard <em>Growth Partner</em></span>
+      </a>
+      <a href="index.html" class="link book__back"><span aria-hidden="true">&larr;</span> Back to site</a>
+    </div>
+  </header>
+
+  <main class="book">
+    <div class="wrap book__grid">
+      <section class="book__intro">
+        <p class="kicker"><span class="dot"></span> Strategy call</p>
+        <h1 class="book__title">Book a free <em>strategy call</em>.</h1>
+        <p class="section__lede">Thirty minutes, one on one. Pick a time that works and tell me a little about your brand. I'll confirm by email or text.</p>
+        <ul class="book__meta">
+          <li><span>Length</span>30 minutes</li>
+          <li><span>Where</span>Video or phone</li>
+          <li><span>Cost</span>Free</li>
+        </ul>
+        <div class="book__cover">
+          <h2>What we'll cover</h2>
+          <ol>
+            <li>Where your brand, content and operations are today</li>
+            <li>Where you want to be in the next 6 to 12 months</li>
+            <li>The fastest path there: social, AI systems, brand, or all three</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="book__card" aria-labelledby="book-steps">
+        <h2 id="book-steps" class="visually-hidden">Choose a time and send your details</h2>
+
+        <div class="book__step" id="step-date">
+          <p class="book__step-label"><span>1</span> Pick a day</p>
+          <div class="cal" aria-live="polite">
+            <div class="cal__head">
+              <button type="button" class="cal__nav" data-cal-prev aria-label="Previous month">&larr;</button>
+              <p class="cal__month" data-cal-month></p>
+              <button type="button" class="cal__nav" data-cal-next aria-label="Next month">&rarr;</button>
+            </div>
+            <div class="cal__dow" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+            <div class="cal__grid" data-cal-grid role="grid"></div>
+          </div>
+        </div>
+
+        <div class="book__step" id="step-time">
+          <p class="book__step-label"><span>2</span> Pick a time <small data-tz-label></small></p>
+          <p class="book__hint" data-time-hint>Choose a day to see open times.</p>
+          <div class="slots" data-slots></div>
+        </div>
+
+        <form class="book__step book__form" id="book-form" novalidate>
+          <p class="book__step-label"><span>3</span> Your info</p>
+          <div class="field-row">
+            <label class="field"><span>Full name *</span><input id="bk-name" name="name" type="text" autocomplete="name" required></label>
+            <label class="field"><span>Phone *</span><input id="bk-phone" name="phone" type="tel" autocomplete="tel" required></label>
+          </div>
+          <div class="field-row">
+            <label class="field"><span>Email *</span><input id="bk-email" name="email" type="email" autocomplete="email" required></label>
+            <label class="field"><span>Brand or company</span><input id="bk-company" name="company" type="text" autocomplete="organization"></label>
+          </div>
+          <label class="field"><span>Website or main social link</span><input id="bk-link" name="link" type="text" inputmode="url" placeholder="instagram.com/yourbrand"></label>
+          <fieldset class="field">
+            <legend>What do you need help with?</legend>
+            <div class="pick">
+              <label><input id="bk-svc-social" type="checkbox" name="services" value="Social media management"><span>Social media</span></label>
+              <label><input id="bk-svc-ai" type="checkbox" name="services" value="AI systems & dashboards"><span>AI systems &amp; dashboards</span></label>
+              <label><input id="bk-svc-brand" type="checkbox" name="services" value="Brand & creative"><span>Brand &amp; creative</span></label>
+              <label><input id="bk-svc-unsure" type="checkbox" name="services" value="Not sure yet"><span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+          <label class="field"><span>Anything I should know before the call?</span><textarea id="bk-notes" name="notes" rows="4" placeholder="Goals, timeline, what's working and what isn't"></textarea></label>
+
+          <div class="book__summary" data-summary>No time picked yet.</div>
+          <p class="book__error" data-error role="alert" hidden></p>
+          <button type="submit" class="btn btn--lg book__submit">Request this time <span aria-hidden="true">&rarr;</span></button>
+        </form>
+
+        <div class="book__done" data-done hidden tabindex="-1">
+          <p class="kicker"><span class="dot"></span> <span data-done-kicker>Request sent</span></p>
+          <h2 data-done-title>Request received.</h2>
+          <p data-done-body></p>
+          <a href="index.html" class="btn btn--ghost">Back to the site</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/book.js"></script>
+</body>
+</html>
