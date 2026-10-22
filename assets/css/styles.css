@@ -286,13 +286,15 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .g__go { display: inline-block; margin-left: 4px; color: var(--accent); transition: transform .3s var(--ease); }
 .g--link:hover .g__go { transform: translate(2px, -2px); }
 .site-card { position: absolute; inset: 0; display: flex; flex-direction: column; }
-.site-card__bar { display: flex; align-items: center; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.25); }
+.site-card__bar { display: flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; position: relative; z-index: 1; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.25); }
 .site-card__bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.14); }
 .site-card__bar span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: 8px; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,.05); font: 400 11px var(--mono); color: var(--muted); }
 .site-card__body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px 24px 64px; }
 .site-card__body strong { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 42px); line-height: 1; letter-spacing: -0.01em; color: var(--text); transition: color .3s; }
 .site-card__body small { font-size: 14px; color: var(--muted); }
 .g--link:hover .site-card__body strong { color: var(--accent); }
+/* A site screenshot sits inside the browser frame, below the address bar */
+.g--link > img { top: 44px; height: calc(100% - 44px); object-position: top center; }
 
 /* process */
 .process .section__title { margin-bottom: 70px; max-width: 18ch; }
