@@ -19,8 +19,8 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `josh-hero.jpg` | Header portrait (4:5, vertical) |
 | `josh-about.jpg` | About section (square) |
 | `social-tatum.jpg` | Social, Officer Tatum card (4:5) ✓ added |
-| `social-sgt-care.png` | Social, Sgt. Care card (logo, shown uncropped on white) |
-| `social-omentchuku.jpg` | Social, John Omentchuku card (4:5) |
+| `social-sgt-care.png` | Social, Sgt. Care card (logo, shown uncropped on white) ✓ added |
+| `social-amanchukwu.jpg` | Social, John Amanchukwu card (4:5) ✓ added |
 | `dashboard.jpg` | AI Systems, replaces the built-in dashboard mockup (16:10) |
 | `brand-logo.jpg` | Brand, logo iteration (wide) |
 | `brand-event.jpg` | Brand, event materials (tall) |
