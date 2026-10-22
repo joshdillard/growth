@@ -66,12 +66,12 @@ const SITE = {
   toggle.addEventListener("click", () => setMenu(menu.hidden));
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
-  // Reveal on scroll
-  const items = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window)) {
-    items.forEach((el) => el.classList.add("is-in"));
-    return;
-  }
+  // Reveal on scroll: only elements below the first screen wait to animate in
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const items = [...document.querySelectorAll(".reveal")].filter(
+    (el) => el.getBoundingClientRect().top > window.innerHeight
+  );
+  items.forEach((el) => el.classList.add("is-pending"));
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -80,7 +80,7 @@ const SITE = {
         // stagger siblings that enter together
         const siblings = [...el.parentElement.children].filter((c) => c.classList.contains("reveal"));
         el.style.transitionDelay = `${Math.min(siblings.indexOf(el), 5) * 80}ms`;
-        el.classList.add("is-in");
+        el.classList.remove("is-pending");
         io.unobserve(el);
       });
     },
