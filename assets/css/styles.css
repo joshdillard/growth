@@ -314,6 +314,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .play svg { margin-left: 4px; }
 .g--video:hover .play { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 0 16px rgba(233,167,74,.12); }
+/* Keeps the play button off the subject when the still has a face on the right */
+.g--video-left .play { left: 28%; }
 .g--video__title { position: absolute; left: 24px; top: 22px; z-index: 2; font-size: clamp(18px, 1.8vw, 24px); font-weight: 500; letter-spacing: -0.02em; }
 
 /* Brand assets gallery tile + lightbox */
