@@ -218,7 +218,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .shot figcaption { padding: 12px 18px; border-top: 1px solid var(--line); font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .shot--wide { overflow-x: auto; }
 .shot--wide img { min-width: 640px; }
-.proof__pair { display: grid; grid-template-columns: 1.37fr 1fr; gap: 22px; align-items: start; }
+.proof__pair { display: grid; grid-template-columns: 1.37fr 1fr; gap: 16px; align-items: start; width: 100%; max-width: 760px; margin-inline: auto; }
+.proof__pair .shot figcaption { padding: 10px 14px; font-size: 10px; }
 
 /* systems */
 .systems { display: grid; grid-template-columns: 1.3fr .7fr; gap: 28px; align-items: stretch; }
@@ -320,7 +321,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 1024px) {
   .nav__links, .nav__inner > .btn { display: none; }
   .nav__toggle { display: block; }
-  .hero__grid, .section__head, .systems, .about__grid, .agents__head, .proof__head, .proof__pair { grid-template-columns: 1fr; }
+  .hero__grid, .section__head, .systems, .about__grid, .agents__head, .proof__head { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stats div:nth-child(2) { border-right: 0; }
   .stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -349,6 +350,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .dash__kpis strong { font-size: 15px; }
   .dash__agents small { display: none; }
   .footer__links { margin-left: 0; }
+}
+@media (max-width: 520px) {
+  .proof__pair { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
