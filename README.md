@@ -21,6 +21,7 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `social-tatum.jpg` | Social, Officer Tatum card (4:5) ✓ added |
 | `social-sgt-care.png` | Social, Sgt. Care card (logo, shown uncropped on white) ✓ added |
 | `social-amanchukwu.jpg` | Social, John Amanchukwu card (4:5) ✓ added |
+| `social-why-files.jpg` | Social, The Why Files card (4:5) ✓ added |
 | `dashboard.jpg` | AI Systems, replaces the built-in dashboard mockup (16:10) |
 | `brand-ai-content.jpg` | Brand, optional poster frame for the AI content video tile (wide) |
 | `brand-event.jpg` | Brand, event materials (tall) |
