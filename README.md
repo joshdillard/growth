@@ -30,7 +30,7 @@ To use a different file name or format (`.png`, `.webp`), change the `src` on th
 
 ## Brand tile previews
 
-The Sunstate Fire, Be Catholic and Network Hub tiles load a live screenshot from WordPress mShots (`s0.wp.com/mshots`). The AI Content Trailer and AI Film Making tiles link to their videos on YouTube and use the YouTube thumbnails. To use your own screenshot instead, save it in `assets/img/` and point that tile's `<img src>` at it.
+The Be Catholic tile uses `assets/img/site-be-catholic.jpg`. The Sunstate Fire and Network Hub tiles load a live screenshot from WordPress mShots (`s0.wp.com/mshots`). The AI Content Trailer and AI Film Making tiles link to their videos on YouTube and use the YouTube thumbnails. To use your own screenshot instead, save it in `assets/img/` and point that tile's `<img src>` at it.
 
 ## Change the look
 
