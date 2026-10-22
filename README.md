@@ -24,7 +24,7 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `dashboard.jpg` | AI Systems, replaces the built-in dashboard mockup (16:10) |
 | `brand-logo.jpg` | Brand, logo iteration (wide) |
 | `brand-event.jpg` | Brand, event materials (tall) |
-| `brand-website.jpg` | Brand, website |
+| `brand-website.jpg` | Brand, website tile (links to sunstatefire.com); a homepage screenshot covers the placeholder card |
 | `brand-assets.jpg` | Brand, brand assets |
 | `brand-merch.jpg` | Brand, merch & apparel |
 | `brand-campaign.jpg` | Brand, campaign & print (wide) |

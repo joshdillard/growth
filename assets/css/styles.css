@@ -274,12 +274,25 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(220px, 24vw, 320px); gap: 18px; }
 .g--wide { grid-column: span 2; }
 .g--tall { grid-row: span 2; }
-.g figcaption {
+.g figcaption, .g .g__cap {
   position: absolute; left: 18px; bottom: 18px; z-index: 2;
   font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase;
   padding: 8px 12px; border-radius: 999px; background: rgba(10,10,11,.7); backdrop-filter: blur(8px); border: 1px solid var(--line-2);
 }
 .g:hover > img { transform: scale(1.04); }
+.g--link { display: block; transition: border-color .4s; }
+.g--link:hover, .g--link:focus-visible { border-color: rgba(233,167,74,.55); }
+.g--link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.g__go { display: inline-block; margin-left: 4px; color: var(--accent); transition: transform .3s var(--ease); }
+.g--link:hover .g__go { transform: translate(2px, -2px); }
+.site-card { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.site-card__bar { display: flex; align-items: center; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.25); }
+.site-card__bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.14); }
+.site-card__bar span { margin-left: 8px; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,.05); font: 400 11px var(--mono); color: var(--muted); }
+.site-card__body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px 24px 64px; }
+.site-card__body strong { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 42px); line-height: 1; letter-spacing: -0.01em; color: var(--text); transition: color .3s; }
+.site-card__body small { font-size: 14px; color: var(--muted); }
+.g--link:hover .site-card__body strong { color: var(--accent); }
 
 /* process */
 .process .section__title { margin-bottom: 70px; max-width: 18ch; }
