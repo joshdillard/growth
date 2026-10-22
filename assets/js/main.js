@@ -87,23 +87,48 @@ const SITE = {
     if (img.complete && img.naturalWidth) check();
   });
 
-  // Video pop-up player
-  const player = document.getElementById("player");
-  if (player) {
-    const frame = player.querySelector("iframe");
-    const link = player.querySelector("[data-player-link]");
-    document.querySelectorAll("[data-video]").forEach((btn) =>
+  // Brand assets gallery
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    const img = lightbox.querySelector("img");
+    const caption = lightbox.querySelector("[data-lb-caption]");
+    const count = lightbox.querySelector("[data-lb-count]");
+    let items = [];
+    let index = 0;
+    const show = (i) => {
+      index = (i + items.length) % items.length;
+      img.src = items[index].href;
+      img.alt = items[index].text;
+      caption.textContent = items[index].text;
+      count.textContent = `${index + 1} / ${items.length}`;
+    };
+    document.querySelectorAll("[data-gallery]").forEach((btn) =>
       btn.addEventListener("click", () => {
-        frame.src = btn.dataset.video;
-        link.href = btn.dataset.videoLink || btn.dataset.video;
-        player.querySelector("[data-player-source]").textContent = btn.dataset.videoSource || "the original site";
-        player.classList.toggle("player--tall", btn.dataset.videoShape === "tall");
-        player.showModal();
+        items = [...btn.querySelector("template").content.querySelectorAll("a")].map((a) => ({
+          href: a.getAttribute("href"),
+          text: a.textContent.trim(),
+        }));
+        show(0);
+        lightbox.showModal();
       })
     );
-    player.addEventListener("close", () => (frame.src = ""));
-    player.querySelector("[data-player-close]").addEventListener("click", () => player.close());
-    player.addEventListener("click", (e) => { if (e.target === player) player.close(); });
+    lightbox.querySelector("[data-lb-prev]").addEventListener("click", () => show(index - 1));
+    lightbox.querySelector("[data-lb-next]").addEventListener("click", () => show(index + 1));
+    lightbox.querySelector("[data-lb-close]").addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
+    });
+    // swipe on phones
+    let x0 = null;
+    lightbox.addEventListener("touchstart", (e) => (x0 = e.touches[0].clientX), { passive: true });
+    lightbox.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
   }
 
   // Reveal on scroll: only elements below the first screen wait to animate in

@@ -290,22 +290,21 @@
           <p class="section__lede reveal">New logo iterations, websites, brand assets and materials for your brand or your next event. Everything designed to work together, online and in the room.</p>
         </div>
 
-        <!-- AI content reel, embedded from YouTube -->
-        <figure class="shot reel reveal">
-          <div class="reel__frame">
-            <iframe src="https://www.youtube.com/embed/mrlNDiBHMws?si=NX0hTBblbRzhRZxY" title="AI content reel" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <figcaption>AI Content &middot; reel</figcaption>
-        </figure>
-
         <div class="gallery">
+          <!-- AI content trailer: opens the video on YouTube -->
+          <a class="media g g--wide g--video reveal" href="https://youtu.be/mrlNDiBHMws" target="_blank" rel="noopener" aria-label="Watch the AI content trailer on YouTube (opens in a new tab)">
+            <img src="https://i.ytimg.com/vi/mrlNDiBHMws/maxresdefault.jpg" alt="" data-min-width="200" data-fallback="https://i.ytimg.com/vi/mrlNDiBHMws/hqdefault.jpg" onerror="this.remove()">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+            <span class="g--video__title" aria-hidden="true">Watch the <em>AI content</em> trailer</span>
+            <span class="g__cap">AI Content Trailer<span class="g__cap-more"> &middot; Watch on YouTube</span> <span class="g__go" aria-hidden="true">&nearr;</span></span>
+          </a>
           <!-- Dashboard tile: live preview from WordPress mShots; the browser card shows if it fails -->
-          <a class="media g g--link reveal" href="https://23-81-33-5.sslip.io/api/assets/raw?path=software%2Fdillard-ventures-network-hub.html" target="_blank" rel="noopener" aria-label="Open the Dillard Ventures Network Hub dashboard (opens in a new tab)">
+          <a class="media g g--tall g--link reveal" href="https://23-81-33-5.sslip.io/api/assets/raw?path=software%2Fdillard-ventures-network-hub.html" target="_blank" rel="noopener" aria-label="Open the Dillard Ventures Network Hub dashboard (opens in a new tab)">
             <span class="site-card" aria-hidden="true">
               <span class="site-card__bar"><i></i><i></i><i></i><span>dillard-ventures-network-hub</span></span>
               <span class="site-card__body"><strong>Network Hub</strong><small>Dillard Ventures &middot; custom dashboard</small></span>
             </span>
-            <img src="https://s0.wp.com/mshots/v1/https%3A%2F%2F23-81-33-5.sslip.io%2Fapi%2Fassets%2Fraw%3Fpath%3Dsoftware%252Fdillard-ventures-network-hub.html?vpw=1280&amp;vph=960&amp;w=1200&amp;h=900" alt="Dillard Ventures Network Hub dashboard" loading="lazy" data-min-width="600" data-retry onerror="this.remove()">
+            <img src="https://s0.wp.com/mshots/v1/https%3A%2F%2F23-81-33-5.sslip.io%2Fapi%2Fassets%2Fraw%3Fpath%3Dsoftware%252Fdillard-ventures-network-hub.html?vpw=1024&amp;vph=1600&amp;w=800&amp;h=1250" alt="Dillard Ventures Network Hub dashboard" loading="lazy" data-min-width="600" data-retry onerror="this.remove()">
             <span class="g__cap">Micro Solutions / Dashboards <span class="g__go" aria-hidden="true">&nearr;</span></span>
           </a>
           <!-- Website tiles: live homepage preview from WordPress mShots; the browser card shows if it fails -->
@@ -325,21 +324,26 @@
             <img src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fbe-catholic.lovable.app%2F?vpw=1280&amp;vph=960&amp;w=1200&amp;h=900" alt="Be Catholic homepage" loading="lazy" data-min-width="600" data-retry onerror="this.remove()">
             <span class="g__cap">Website &middot; Be Catholic <span class="g__go" aria-hidden="true">&nearr;</span></span>
           </a>
-          <figure class="media g reveal" data-label="Brand assets &middot; assets/img/brand-assets.jpg">
-            <img src="assets/img/brand-assets.jpg" alt="Brand assets" onerror="this.remove()">
-            <figcaption>Brand Assets</figcaption>
-          </figure>
-          <!-- AI film making: plays the Instagram post in the pop-up player (vertical). Optional poster: assets/img/brand-ai-film.jpg -->
-          <button type="button" class="media g g--video reveal" data-video="https://www.instagram.com/p/Db29AqbRClS/embed" data-video-link="https://www.instagram.com/p/Db29AqbRClS/" data-video-shape="tall" data-video-source="Instagram" aria-label="Play AI film making video">
-            <img src="assets/img/brand-ai-film.jpg" alt="" onerror="this.remove()">
+          <!-- Brand assets: opens a full-screen gallery of the images listed in data-gallery-items -->
+          <button type="button" class="media g g--gallery reveal" data-gallery aria-label="View brand assets gallery, 5 images">
+            <img src="assets/img/asset-build-the-system.jpg" alt="" style="object-position: center 38%">
+            <span class="g--gallery__count" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M4 7h12v12H4z M8 3h12v12" fill="none" stroke="currentColor" stroke-width="2"/></svg>5</span>
+            <span class="g__cap">Brand Assets <span class="g__go" aria-hidden="true">&rarr;</span></span>
+            <template>
+              <a href="assets/img/asset-build-the-system.jpg">Social graphic &middot; Build the System</a>
+              <a href="assets/img/asset-sgt-care-reel-system.jpg">Reel graphics system &middot; Sgt. Care</a>
+              <a href="assets/img/asset-be-catholic-banner.jpg">Brand banner &middot; Be Catholic</a>
+              <a href="assets/img/asset-ai-film-storyboard.jpg">AI film storyboard</a>
+              <a href="assets/img/asset-flamingo-effect-poster.jpg">Film poster &middot; The Flamingo Effect</a>
+            </template>
+          </button>
+          <!-- AI film: opens the film on YouTube -->
+          <a class="media g g--wide g--video reveal" href="https://www.youtube.com/watch?v=5HBKWzA1zFs" target="_blank" rel="noopener" aria-label="Watch the AI film on YouTube (opens in a new tab)">
+            <img src="https://i.ytimg.com/vi/5HBKWzA1zFs/maxresdefault.jpg" alt="" data-min-width="200" data-fallback="https://i.ytimg.com/vi/5HBKWzA1zFs/hqdefault.jpg" onerror="this.remove()">
             <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
             <span class="g--video__title" aria-hidden="true">Watch the <em>AI film</em></span>
-            <span class="g__cap">AI Film Making</span>
-          </button>
-          <figure class="media g reveal" data-label="Campaign / print &middot; assets/img/brand-campaign.jpg">
-            <img src="assets/img/brand-campaign.jpg" alt="Campaign and print materials" onerror="this.remove()">
-            <figcaption>Campaign &amp; Print</figcaption>
-          </figure>
+            <span class="g__cap">AI Film Making<span class="g__cap-more"> &middot; Watch on YouTube</span> <span class="g__go" aria-hidden="true">&nearr;</span></span>
+          </a>
         </div>
 
         <ul class="included reveal" aria-label="Brand services">
@@ -370,7 +374,7 @@
     <!-- ABOUT -->
     <section class="section about" id="about">
       <div class="wrap about__grid">
-        <figure class="media media--square reveal" data-label="About photo &middot; assets/img/josh-about.jpg">
+        <figure class="media media--about reveal" data-label="About photo &middot; assets/img/josh-about.jpg">
           <img src="assets/img/josh-about.jpg" alt="Josh Dillard at work" onerror="this.remove()">
         </figure>
         <div>
@@ -411,12 +415,14 @@
     </div>
   </footer>
 
-  <dialog class="player" id="player" aria-label="Video player">
-    <div class="player__frame"><iframe title="AI content video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-    <div class="player__bar">
-      <a class="link" href="#" target="_blank" rel="noopener" data-player-link><span>Watch on <span data-player-source>YouTube</span></span> <span aria-hidden="true">&nearr;</span></a>
-      <button type="button" class="btn btn--sm btn--ghost" data-player-close>Close</button>
-    </div>
+  <dialog class="lightbox" id="lightbox" aria-label="Brand assets gallery">
+    <figure class="lightbox__stage">
+      <img alt="">
+      <figcaption><span data-lb-caption></span><span class="lightbox__count" data-lb-count></span></figcaption>
+    </figure>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label="Previous image">&larr;</button>
+    <button type="button" class="lightbox__nav lightbox__nav--next" data-lb-next aria-label="Next image">&rarr;</button>
+    <button type="button" class="lightbox__close" data-lb-close aria-label="Close gallery">&times;</button>
   </dialog>
 
   <script src="assets/js/main.js"></script>
