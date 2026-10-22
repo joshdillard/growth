@@ -66,6 +66,23 @@ const SITE = {
   toggle.addEventListener("click", () => setMenu(menu.hidden));
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
+  // Video pop-up player
+  const player = document.getElementById("player");
+  if (player) {
+    const frame = player.querySelector("iframe");
+    const link = player.querySelector("[data-player-link]");
+    document.querySelectorAll("[data-video]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        frame.src = btn.dataset.video;
+        link.href = btn.dataset.videoLink || btn.dataset.video;
+        player.showModal();
+      })
+    );
+    player.addEventListener("close", () => (frame.src = ""));
+    player.querySelector("[data-player-close]").addEventListener("click", () => player.close());
+    player.addEventListener("click", (e) => { if (e.target === player) player.close(); });
+  }
+
   // Reveal on scroll: only elements below the first screen wait to animate in
   if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const items = [...document.querySelectorAll(".reveal")].filter(

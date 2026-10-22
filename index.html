@@ -281,10 +281,13 @@
         </div>
 
         <div class="gallery">
-          <figure class="media g g--wide reveal" data-label="AI content &middot; assets/img/brand-ai-content.jpg">
-            <img src="assets/img/brand-ai-content.jpg" alt="AI content" onerror="this.remove()">
-            <figcaption>AI Content</figcaption>
-          </figure>
+          <!-- AI Content video: plays from Google Drive in a pop-up player. Optional poster: assets/img/brand-ai-content.jpg -->
+          <button type="button" class="media g g--wide g--video reveal" data-video="https://drive.google.com/file/d/1AO_tDiZiioLLY3IIVktzp2HCiRBYXbDa/preview" data-video-link="https://drive.google.com/file/d/1AO_tDiZiioLLY3IIVktzp2HCiRBYXbDa/view" aria-label="Play AI content video">
+            <img src="assets/img/brand-ai-content.jpg" alt="" onerror="this.remove()">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+            <span class="g--video__title" aria-hidden="true">Watch the <em>AI content</em> reel</span>
+            <span class="g__cap">AI Content</span>
+          </button>
           <figure class="media g g--tall reveal" data-label="Event material &middot; assets/img/brand-event.jpg">
             <img src="assets/img/brand-event.jpg" alt="Event materials" onerror="this.remove()">
             <figcaption>Event Materials</figcaption>
@@ -388,6 +391,14 @@
       <p class="footer__copy">&copy; <span data-year></span> Josh Dillard. All rights reserved.</p>
     </div>
   </footer>
+
+  <dialog class="player" id="player" aria-label="Video player">
+    <div class="player__frame"><iframe title="AI content video" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <div class="player__bar">
+      <a class="link" href="#" target="_blank" rel="noopener" data-player-link>Open in Google Drive <span aria-hidden="true">&nearr;</span></a>
+      <button type="button" class="btn btn--sm btn--ghost" data-player-close>Close</button>
+    </div>
+  </dialog>
 
   <script src="assets/js/main.js"></script>
 </body>
