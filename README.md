@@ -24,7 +24,7 @@ Drop files into `assets/img/` with these exact names. Each one replaces its plac
 | `social-why-files.jpg` | Social, The Why Files card (4:5) ✓ added |
 | `dashboard.jpg` | AI Systems, replaces the built-in dashboard mockup (16:10) |
 | `brand-ai-content.jpg` | Brand, optional poster frame for the AI content video tile (wide) |
-| `brand-event.jpg` | Brand, event materials (tall) |
+| `brand-dashboard.jpg` | Brand, Micro Solutions / Dashboards tile (tall, links to the Network Hub) |
 | `brand-website.jpg` | Brand, website tile (links to sunstatefire.com); a homepage screenshot covers the placeholder card |
 | `brand-website-2.jpg` | Brand, second website tile (links to be-catholic.lovable.app) |
 | `brand-assets.jpg` | Brand, brand assets |
